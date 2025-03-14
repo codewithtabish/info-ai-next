@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "creadits" DROP NOT NULL,
+ALTER COLUMN "tokens" DROP NOT NULL;
