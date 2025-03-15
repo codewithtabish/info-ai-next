@@ -3,7 +3,7 @@ import { BadgeDollarSign, Briefcase, Globe, Rocket } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="flex h-screen items-center justify-center dark:bg-slate-800 px-6">
+    <section className="flex h-screen items-center justify-center  px-6">
       <div className="text-center">
         {/* Hero Title */}
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl md:text-6xl">
