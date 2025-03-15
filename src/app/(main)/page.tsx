@@ -4,6 +4,7 @@ import TestimonialsSection from '@/components/general/feedback'
 import Footer from '@/components/general/footer'
 import Hero from '@/components/general/hero-section'
 import HeroVideoDialogDemoRightWithParallax from '@/components/general/hero-video'
+import HowToUse from '@/components/general/steps'
 import TestimonialsSectionFeedback from '@/components/general/testmonial-section'
 import TopModelsSection from '@/components/general/top-model'
 import TrustedCompanies from '@/components/general/trusted-companies'
@@ -17,6 +18,7 @@ const HomePage = () => {
       <TrustedCompanies/>
       <HeroVideoDialogDemoRightWithParallax/>
       <TopModelsSection/>
+      <HowToUse/>
       <TestimonialsSection/>
       <TestimonialsSectionFeedback/>
       <Footer/>
