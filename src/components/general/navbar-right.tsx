@@ -6,6 +6,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { checkAndSaveUser } from '@/actions/user';
 import { USERAPIRESPONSE } from '@/utils/api-response';
 import { User } from '@prisma/client';
+import Link from 'next/link';
+import NavbarAvatar from './navbar-avatar';
 
 
 
@@ -27,19 +29,8 @@ const user:User=response?.user
             <LoginLink postLoginRedirectURL='/' className='bg-none  font-semibold'>
             Sign In
           </LoginLink>:
-         <>
-         <p>
-            {user?.credits}
-         </p>
-          <Avatar className='bg-none rounded-lg cursor-pointer'>
-          <AvatarImage src={
-            user?.profilePicture ?? " "
-          } />
-          
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-
-         </>
+          <NavbarAvatar user={user}/>
+     
         
           
 

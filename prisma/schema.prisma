@@ -8,12 +8,35 @@ datasource db {
 }
 
 model User {
-  id String @id @default(cuid())
-  name String
-  email String @unique
+  id             String            @id @default(cuid())
+  name           String
+  email          String            @unique
   profilePicture String
-  credits Int? @default(5000) // Fixed typo from 'creadits' to 'credits'
-  tokens Int? @default(5000)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt // ✅ Auto-updates on every update
+  credits        Int?              @default(5000) // Fixed typo from 'creadits' to 'credits'
+  tokens         Int?              @default(5000)
+  isAIAssistants  Boolean           @default(false)
+  assignments    UserAIAssistant[]
+  created_at     DateTime          @default(now())
+  updated_at     DateTime          @updatedAt // ✅ Auto-updates on every update
+}
+
+//  id: number;
+//   name: string;
+//   title: string;
+//   image: string;
+//   instruction: string;
+//   userInstruction: string;
+//   sampleQuestions: string[];
+model UserAIAssistant {
+  id              String   @id @default(cuid())
+  name            String
+  title           String
+  image           String
+  instruction     String
+  userInstruction String
+  sampleQuestions String[]
+  userId          String //foreign key for user id
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt // ✅ Auto-updates on every update
 }

@@ -4,18 +4,23 @@ import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import NavbarRightSide from './navbar-right';
+import Link from 'next/link';
 
 const NavBar = async() => {
   return (
     <header className="relative  md:px-5 px-4">
       <nav className="flex justify-between items-center backdrop-blur-md rounded-xl pt-4 shadow-lg relative z-10">
+      <Link href={'/'}>
         <Image
           src={'/logo-two.png'}
           alt="Logo"
           width={160}
           height={100}
           className="object-cover drop-shadow-md"
-        />
+          />
+          </Link>
+        <div>
+        </div>
         <Suspense fallback={'loading ...'}>
 
         <NavbarRightSide/>
