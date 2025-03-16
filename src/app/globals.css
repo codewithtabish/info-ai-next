@@ -125,3 +125,22 @@
         @apply bg-background text-foreground;
     }
 }
+
+
+/* Custom Scrollbar - Fully Hidden */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    /* Invisible thumb */
+}
+
+.custom-scrollbar {
+    scrollbar-width: none;
+    /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar in IE/Edge */
+}

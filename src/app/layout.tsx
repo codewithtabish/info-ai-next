@@ -41,7 +41,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <UserProvider>
-            <main className="bg-[#020817] text-gray-200  max-w-7xl mx-auto min-h-screen md:px-6 px-4">
+            <main className="bg-[#020817] text-gray-200  max-w-7xl mx-auto min-h-screen ">
             {children}
             <Toaster />
 

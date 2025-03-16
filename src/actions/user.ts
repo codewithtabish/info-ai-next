@@ -23,6 +23,9 @@ export const checkAndSaveUser = async (): Promise<CheckAndSaveUserInDBProps> => 
     // Check if the user already exists
     const existingUser = await prisma.user.findUnique({
       where: { email: user.email },
+      include:{
+        assignments:true
+      }
     });
 
     if (existingUser) {
@@ -39,6 +42,7 @@ export const checkAndSaveUser = async (): Promise<CheckAndSaveUserInDBProps> => 
         tokens: 5000,
         credits:5
       },
+      
     });
 
     return { success: true, message: "User created successfully", user: newUser };
@@ -47,3 +51,5 @@ export const checkAndSaveUser = async (): Promise<CheckAndSaveUserInDBProps> => 
     return { success: false, message: "Internal server error" };
   }
 };
+
+

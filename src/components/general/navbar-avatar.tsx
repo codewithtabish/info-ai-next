@@ -45,18 +45,18 @@ const NavbarAvatar = ({ user }: { user: User }) => {
             >
               <DropdownMenu.Item asChild>
                 <Link
-                  href="/profile"
+                  href="/ai-workspace"
                   className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 rounded-md"
                 >
-                  Profile
+                  WORKSPACE
                 </Link>
               </DropdownMenu.Item>
               <DropdownMenu.Item asChild>
                 <Link
-                  href="/settings"
+                  href="/profile"
                   className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 rounded-md"
                 >
-                  Settings
+                  Profile
                 </Link>
               </DropdownMenu.Item>
               <DropdownMenu.Item asChild>
