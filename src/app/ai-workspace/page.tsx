@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 import WorkSpaceAssistantList from './_components/workspace-assistantlist'
 import WorkspaceChat from './_components/workspace-chat'
+import WorkspaceSetting from './_components/workspace-setting'
 
 const AIWorkSpacePage = async () => {
     const response: any = await checkAndSaveUser()
@@ -30,12 +31,9 @@ const AIWorkSpacePage = async () => {
             </main>
 
             {/* Sidebar - Chat History */}
-            <aside className="w-1/4 p-4 border-l border-gray-700 hidden lg:flex flex-col">
-                <h2 className="text-sm text-gray-400 font-semibold mb-3">Chat History</h2>
-                <ul className="space-y-2">
-                    <li className="p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition">Chat 1</li>
-                    <li className="p-3 bg-gray-800 rounded-md hover:bg-gray-700 transition">Chat 2</li>
-                </ul>
+            <aside className="w-1/4 p-4 h-screen border-l border-gray-700 hidden lg:flex flex-col">
+         
+              <WorkspaceSetting/>
             </aside>
         </div>
     )

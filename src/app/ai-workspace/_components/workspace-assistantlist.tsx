@@ -16,6 +16,9 @@ const WorkSpaceAssistantList = async () => {
     return (
         <div className=" w-full min-h-[100vh] max-w-xs mx-auto shadow-md">
             <h2 className="text-xs text-right cursor-pointer font-medium text-gray-400 mb-3 hover:text-white">+ Add More</h2>
+            {
+                // assignments[0]?.defautModel
+            }
 
             {assignments.length === 0 ? (
                 <p className="text-gray-500 text-sm text-center">No assistants found.</p>
@@ -31,6 +34,7 @@ const WorkSpaceAssistantList = async () => {
                       />
                     ))}
                 </div>
+
             )}
             <div className='cursor-pointer absolute flex flex-row items-center gap-3.5 bottom-5 left-4'>
 
@@ -41,6 +45,7 @@ const WorkSpaceAssistantList = async () => {
           <div className='flex flex-col gap-1'>
           <span className='text-sm'>{user?.name}</span>
           <span className='text-[10px]'>Free Plan</span>
+
           </div>
             </div>
         </div>

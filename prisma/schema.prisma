@@ -35,8 +35,10 @@ model UserAIAssistant {
   instruction     String
   userInstruction String
   sampleQuestions String[]
+  defautModel  String?  @default("Google: Gemini 2.0 Flash")
   userId          String //foreign key for user id
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   created_at      DateTime @default(now())
-  updated_at      DateTime @updatedAt // ✅ Auto-updates on every update
+  updated_at      DateTime @updatedAt // ✅ Auto-updates on every update,
+
 }

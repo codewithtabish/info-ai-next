@@ -3,6 +3,7 @@
 import { prisma } from "@/utils/db";
 import { Assistant } from "@/utils/types";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { UserAIAssistant } from "@prisma/client";
 
 type CreateAIAssistantResponse = {
   success: boolean;
@@ -75,4 +76,46 @@ export const createAIAssistants = async (
     console.error("Error creating AI Assistants:", error);
     return { success: false, message: "An error occurred while creating AI Assistants." };
   }
+};
+
+
+
+
+// Define an interface for the return type
+interface UpdateAIAssistantResponse {
+    success: boolean;
+    message: string;
+    assistant?: UserAIAssistant;
+}
+
+interface UpdateDataProps {
+    assistantId: string;
+    defautModel?: string;
+    instruction?: string;
+}
+
+export const updateAIAssistant = async (data: UpdateDataProps): Promise<UpdateAIAssistantResponse> => {
+    const { assistantId, defautModel, instruction } = data;
+
+    try {
+        const assistant = await prisma.userAIAssistant.update({
+            where: { id: assistantId },
+            data: {
+                defautModel: defautModel || undefined, // Update only if provided
+                instruction: instruction || undefined, // Update only if provided
+            },
+        });
+
+        return {
+            success: true,
+            message: "AI assistant updated successfully.",
+            assistant, // Return the updated assistant
+        };
+    } catch (error) {
+        console.error("Error updating AI assistant:", error);
+        return {
+            success: false,
+            message: "Failed to update AI assistant.",
+        };
+    }
 };
