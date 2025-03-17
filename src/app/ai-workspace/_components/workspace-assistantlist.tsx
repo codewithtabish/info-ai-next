@@ -14,18 +14,19 @@ import {
 import ProfileDialog from "./profile-dialouge";
 import { useUserContext } from "@/provider/main-provider";
 
-const WorkSpaceAssistantList = () => {
+const WorkSpaceAssistantList = ({user:mainUser}:{user:User|null}) => {
   const [user, setUser] = useState<User | null>(null);
   const [assignments, setAssignments] = useState<UserAIAssistant[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);  // State to manage dialog visibility
   const containerRef = useRef<HTMLDivElement>(null);
-  const {mainContextUser} =useUserContext()
+  const {mainContextUser,setMainContextUser} =useUserContext()
 
   useEffect(() => {
     const fetchData = async () => {
       const response: { user?: User & { assignments?: UserAIAssistant[] } } = await checkAndSaveUser();
       setUser(response?.user || null);
       setAssignments(response?.user?.assignments || []);
+      setMainContextUser(response?.user || null);
     };
 
     fetchData();

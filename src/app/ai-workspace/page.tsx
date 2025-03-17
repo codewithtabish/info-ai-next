@@ -10,10 +10,12 @@ import WorkspaceChat from "./_components/workspace-chat";
 const AIWorkSpacePage = async () => {
   const response: any = await checkAndSaveUser();
   const user: User = response?.user;
+  
 
   if (!user?.isAIAssistants) {
     redirect("/ai-assistants");
   }
+
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#0d1117] text-white">
