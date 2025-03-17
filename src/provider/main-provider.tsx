@@ -17,7 +17,7 @@ interface UserContextType {
   response: string | null;
   fetchResponse: (message: string) => void;
   mainContextUser: User | null;
-  setMainContextUser: React.Dispatch<React.SetStateAction<User | null>>
+  setMainContextUser: React.Dispatch<React.SetStateAction<any >>
 }
 
 // Create context
