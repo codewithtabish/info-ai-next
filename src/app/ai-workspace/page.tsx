@@ -9,7 +9,7 @@ import WorkspaceChat from "./_components/workspace-chat";
 
 const AIWorkSpacePage = async () => {
   const response: any = await checkAndSaveUser();
-  const user: User = response?.user;
+  const user:any = response?.user;
   
 
   if (!user?.isAIAssistants) {
@@ -23,7 +23,7 @@ const AIWorkSpacePage = async () => {
       <aside className="w-[280px] p-4 border-r border-gray-700 hidden md:flex flex-col overflow-y-auto h-full">
         <h2 className="text-sm text-gray-400 font-semibold mb-3">Assistants</h2>
         <div className="flex-1 overflow-y-hidden">
-          <WorkSpaceAssistantList />
+          <WorkSpaceAssistantList  user={user}/>
         </div>
       </aside>
 
