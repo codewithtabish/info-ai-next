@@ -53,3 +53,48 @@ export const checkAndSaveUser = async (): Promise<CheckAndSaveUserInDBProps> => 
 };
 
 
+
+
+
+
+type UpdateUserTokenProps = {
+  success: boolean;
+  message: string;
+  user?: User;
+};
+
+export const updateUserTokenAction = async (tokensToSubtract: number): Promise<UpdateUserTokenProps> => {
+  try {
+    // Get user session
+    const { getUser } = getKindeServerSession();
+    const user = await getUser();
+
+    if (!user || !user.email) {
+      return { success: false, message: "User not authenticated or email is missing" };
+    }
+
+    // Find user in the database
+    const existingUser = await prisma.user.findUnique({
+      where: { email: user.email },
+    });
+
+    if (!existingUser) {
+      return { success: false, message: "User not found" };
+    }
+
+    // Calculate new token count (ensuring it doesn't go below 0)
+    const newTokenCount = Math.max((existingUser.tokens ?? 0) - tokensToSubtract, 0);
+
+    // Update user's token count and return updated user
+    const updatedUser = await prisma.user.update({
+      where: { email: user.email },
+      data: { tokens: newTokenCount },
+    });
+
+    return { success: true, message: "User tokens updated successfully", user: updatedUser };
+  } catch (error) {
+    console.error("Error in updateUserTokenAction:", error);
+    return { success: false, message: "Internal server error" };
+  }
+};
+

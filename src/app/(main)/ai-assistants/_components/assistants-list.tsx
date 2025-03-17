@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useCallback } from "react";
 import assistantList from "../../../../lib/assistants";
 import AssistantCard from "./assistant-card";
@@ -7,8 +6,7 @@ import { Assistant } from "@/utils/types";
 import { useUserContext } from "@/provider/main-provider";
 
 const AIASSISTANTLIST = () => {
-    const {selectedAssistants, setSelectedAssistants} =useUserContext()
-//   const [selectedAssistants, setSelectedAssistants] = useState<Assistant[]>([]);
+  const { selectedAssistants, setSelectedAssistants } = useUserContext();
 
   const toggleSelection = useCallback((assistant: Assistant) => {
     setSelectedAssistants((prev) =>
@@ -19,11 +17,11 @@ const AIASSISTANTLIST = () => {
   }, []);
 
   return (
-    <div className="py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+    <div className="py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-y-scroll scrollbar-hide">
       <p className="text-white text-lg mb-4">
         Selected Assistants: {selectedAssistants.length}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid overflow-y-hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {assistantList.map((assistant) => (
           <AssistantCard
             key={assistant.id}
