@@ -23,7 +23,7 @@ const ProfileDialog = ({ user, isDialogOpen, onClose }: ProfileDialogProps) => {
         // transition={{ duration: 0.3 }}
       >
         <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-semibold">Profile Information</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold">Profile Information :</DialogTitle>
         </DialogHeader>
 
         <DialogDescription>
