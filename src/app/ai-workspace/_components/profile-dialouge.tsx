@@ -75,7 +75,7 @@ const ProfileDialog = ({ user, isDialogOpen, onClose }: ProfileDialogProps) => {
                 <hr className="border-gray-500" />
               </div>
               <div className="mt-6">
-                <Button className="w-full text-lg py-2 bg-gradient-to-r from-[#020817] to-[#07122B] hover:scale-105 transition-all ease-in-out duration-300">
+                <Button className="w-full text-lg py-2 bg-gradient-to-r from-[#020817] to-[#07122B] hover:scale-105 transition-all ease-in-out duration-300 cursor-pointer">
                   Upgrade Plan
                 </Button>
               </div>
